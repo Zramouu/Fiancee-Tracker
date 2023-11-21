@@ -4,43 +4,50 @@ export const tokens = {
       200: "#e1e2e7",
       300: "#d1d3da",
       400: "#c2c5ce",
-      500: "#b3b6c2",
-      600: "#8f929b",
+      500: "#f0f0f3",
+      600: "#8A507C",
       700: "#6b6d74",
       800: "#48494e",
-      900: "#242427",
+      900: "#f0f0f3",
     },
     primary: {
-      // light green
-      100: "#d0fcf4",
-      200: "#a0f9e9",
-      300: "#71f5de",
-      400: "#41f2d3",
-      500: "#12efc8",
-      600: "#0ebfa0",
-      700: "#0b8f78",
-      800: "#076050",
-      900: "#043028",
+    100: "black", 
+    200: "#01A6F0",  // blue
+    300: "#9E9E9E",  //gris 
+    // 400: "#46BFBD",  // orange red 
+    400:"#FF7100",
+    500: "#96DD28",  // pistachio green 
+    600: "#e38deb",  // violet
+    700: "#01A6F0",  //blue 
+    // 800: "#FFCE56",  // yellow    
+    800:"#ffd280",
+    900: "#46BFBD",  // bleu turquoise
     },
     secondary: {
       // yellow
-      100: "#fcf0dd",
-      200: "#fae1bb",
-      300: "#f7d299",
-      400: "#f5c377",
-      500: "#f2b455",
-      600: "#c29044",
-      700: "#916c33",
-      800: "#614822",
-      900: "#302411",
+      100: "#46BFBD",  //bleu turquoise 
+      200: "#46BFBD",  //bleu turquoise                  
+      300: "#46BFBD",  //bleu turquoise 
+      400: "#8A507C",  //mauve kind of 
+      500: "#FF7100",  //rose rouge                   
+      600: "#00000",   //noir
+      700: "#8A507C",  //mauve kind of 
+      800: "#F7464A", //orange red                      
+      // 900: "#F7464A",  //rose rouge
+      900:"#FF7100",
     },
     tertiary: {
       // purple
-      500: "#8884d8",
+      100:"#83b66c",  //vert money
+      // 200:"#FFCE56",  //yellow 
+      200:"#ffd280",
+      300: "#FF6384",  //rose
+      400: "#36A2EB",  //bleu
+      500: "#83b66c",  //bleu turquoise               
     },
     background: {
-      light: "#2d2d34",
-      main: "#1f2026",
+      light: "#FBFBFB", 
+      main: "#FBFBFB",   
     },
   };
   
@@ -49,12 +56,12 @@ export const tokens = {
     palette: {
       primary: {
         ...tokens.primary,
-        main: tokens.primary[500],
+        main: tokens.secondary[500],
         light: tokens.primary[400],
       },
       secondary: {
         ...tokens.secondary,
-        main: tokens.secondary[500],
+        main: tokens.secondary[800],
       },
       tertiary: {
         ...tokens.tertiary,
@@ -63,6 +70,7 @@ export const tokens = {
         ...tokens.grey,
         main: tokens.grey[500],
       },
+
       background: {
         default: tokens.background.main,
         light: tokens.background.light,
@@ -83,24 +91,32 @@ export const tokens = {
         fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 20,
         fontWeight: 800,
-        color: tokens.grey[200],
+        color: tokens.primary[200],
       },
       h4: {
         fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 14,
         fontWeight: 600,
-        color: tokens.grey[300],
+        color: tokens.primary[200],
       },
       h5: {
         fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 12,
         fontWeight: 400,
-        color: tokens.grey[500],
+        color: tokens.primary[100],
       },
       h6: {
         fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 10,
-        color: tokens.grey[700],
+        color: tokens.primary[300],
       },
     },
   };
+
+
+
+
+
+//A8DC00 vert         //008EF1 bleu
+
+//#0C9FA5 turquois vert 

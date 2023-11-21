@@ -49,7 +49,7 @@ const Predictions = () => {
     <DashboardBox width="100%" height="100%" p="1rem" overflow="hidden">
       <FlexBetween m="1rem 2.5rem" gap="1rem">
         <Box>
-          <Typography variant="h3">Revenue and Predictions</Typography>
+          <Typography variant="h3" style={{color:'#626261'}}>Revenue and Predictions</Typography>
           <Typography variant="h6">
             Charted revenue and predicted revenue based on a simple linear
             regression model
@@ -57,12 +57,16 @@ const Predictions = () => {
         </Box>
         <Button
           onClick={() => setIsPredictions(!isPredictions)}
-          sx={{
-            color: palette.grey[900],
-            backgroundColor: palette.grey[700],
-            boxShadow: "0.1rem 0.1rem 0.1rem 0.1rem rgba(0,0,0,.4)",
-          }}
-        >
+        sx={{
+          color: palette.grey[900],
+          backgroundColor: '#FFCE56', 
+          boxShadow: "0.1rem 0.1rem 0.1rem 0.1rem rgba(0,0,0,.4)",
+          ':hover': {
+            backgroundColor: '#FFCE56', 
+            outline: 'none'
+          }
+        }}
+        >        
           Show Predicted Revenue for Next Year
         </Button>
       </FlexBetween>
@@ -105,14 +109,15 @@ const Predictions = () => {
           <Line
             type="monotone"
             dataKey="Regression Line"
-            stroke="#8884d8"
+            stroke="#488f31"
             dot={false}
           />
           {isPredictions && (
             <Line
               strokeDasharray="5 5"
               dataKey="Predicted Revenue"
-              stroke={palette.secondary[500]}
+              stroke={palette.tertiary[200]}
+              strokeWidth={2.2}
             />
           )}
         </LineChart>

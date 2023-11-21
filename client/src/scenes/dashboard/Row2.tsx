@@ -27,7 +27,7 @@ const pieData = [
 
 const Row2 = () => {
   const { palette} = useTheme();
-  const pieColors = [palette.primary[800], palette.primary[300]];
+  const pieColors = [palette.primary[400], palette.tertiary[200]];
   const { data: operationalData } = useGetKpisQuery();
   const { data: productData } = useGetProductsQuery();
 
@@ -64,7 +64,9 @@ const Row2 = () => {
     <DashboardBox gridArea="d">
         <BoxHeader
           title="Operational vs Non-Operational Expenses"
+          titlestyle={{color: '#488f31'}}
           sideText="+4%"
+          sidestyle={{color:'#FFCE56'}}
         />
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
@@ -76,7 +78,7 @@ const Row2 = () => {
               bottom: 55,
             }}
           >
-            <CartesianGrid vertical={false} stroke={palette.grey[800]} />
+            <CartesianGrid vertical={false} stroke={palette.grey[100]} />
             <XAxis
               dataKey="name"
               tickLine={false}
@@ -101,7 +103,7 @@ const Row2 = () => {
               yAxisId="left"
               type="monotone"
               dataKey="Non Operational Expenses"
-              stroke={palette.tertiary[500]}
+              stroke={palette.tertiary[100]}
             />
             <Line
               yAxisId="right"
@@ -113,7 +115,11 @@ const Row2 = () => {
         </ResponsiveContainer>
       </DashboardBox>
     <DashboardBox gridArea="e">
-    <BoxHeader title="Campaigns and Targets" sideText="+4%" />
+    <BoxHeader 
+    title="Campaigns and Targets" 
+    titlestyle={{color:'#488f31'}}
+    sideText="+4%"
+    sidestyle={{color:'#FFCE56'}} />
     <FlexBetween mt="0.25rem" gap="1.5rem" pr="1rem">
     <PieChart 
       width={110} height={100}
@@ -137,28 +143,32 @@ const Row2 = () => {
             </Pie>
           </PieChart>
           <Box ml="-0.7rem" flexBasis="40%" textAlign="center">
-            <Typography variant="h5">Target Sales</Typography>
-            <Typography m="0.3rem 0" variant="h3" color={palette.primary[300]}>
+            <Typography variant="h5" style={{color:"#3d3d3d", fontWeight:"bold"}}>Target Sales</Typography>
+            <Typography m="0.3rem 0" variant="h3" style={{color:"#3d3d3d"}}>
               83
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="h6" style={{color:"#3d3d3d"}}>
               Finance goals of the campaign that is desired
             </Typography>
           </Box>
           <Box flexBasis="40%">
-            <Typography variant="h5">Losses in Revenue</Typography>
-            <Typography variant="h6">Losses are down 25%</Typography>
-            <Typography mt="0.4rem" variant="h5">
+            <Typography variant="h5" style={{color:"#488f31", fontWeight: "bold" }}>Losses in Revenue</Typography>
+            <Typography variant="h6" style={{color:"#488f31" }} >Losses are down 25%</Typography>
+            <Typography mt="0.4rem" variant="h5" style={{color:"#FFCE56", fontWeight: "bold" }}>
               Profit Margins
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="h6"style={{color:"#FFCE56"}} >
               Margins are up by 30% from last month.
             </Typography>
           </Box>
         </FlexBetween>
       </DashboardBox>
     <DashboardBox gridArea="f">
-    <BoxHeader title="Product Prices vs Expenses" sideText="+4%" />
+    <BoxHeader 
+    title="Product Prices vs Expenses" 
+    titlestyle={{color:'#488f31'}}
+    sideText="+4%"
+    sidestyle={{color:'#FFCE56'}} />
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart
             margin={{
@@ -168,7 +178,7 @@ const Row2 = () => {
               left: -10,
             }}
           >
-            <CartesianGrid stroke={palette.grey[800]} />
+            <CartesianGrid stroke={palette.grey[300]} />
             <XAxis
               type="number"
               dataKey="price"
@@ -192,7 +202,7 @@ const Row2 = () => {
             <Scatter
               name="Product Expense Ratio"
               data={productExpenseData}
-              fill={palette.tertiary[500]}
+              fill={palette.tertiary[200]}
             />
           </ScatterChart>
         </ResponsiveContainer>
