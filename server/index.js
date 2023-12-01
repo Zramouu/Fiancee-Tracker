@@ -29,27 +29,17 @@ app.use(cors());
 app.use("/kpi", kpiRoutes);
 app.use("/product", productRoutes);
 app.use("/transaction", transactionRoutes);
-/*MONGOOSE SETUP*/
-
 const MONGO_URL = process.env.MONGO_URI;
 const PORT = process.env.PORT || 9000;
 
-
-
-const mongoConfig = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-};
-
 mongoose
-.connect(MONGO_URL, mongoConfig)
-.then( async () => {
-    app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
-    /* Add Data when needed */
-    // await mongoose.connection.db.dropDatabase();
-    // KPI.insertMany(kpis);
-    //Product.insertMany(products);
-    //Transaction.insertMany(transactions);
-
-})
-.catch((error) => console.log(`Failed to connect to MongoDB: ${error.message}`));
+    .connect(MONGO_URL)
+    .then(async () => {
+        app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+        // Uncomment the following lines if initial data setup is needed
+        // await mongoose.connection.db.dropDatabase();
+        // KPI.insertMany(kpis);
+        // Product.insertMany(products);
+        // Transaction.insertMany(transactions);
+    })
+    .catch((error) => console.log(`Failed to connect to MongoDB: ${error.message}`));
