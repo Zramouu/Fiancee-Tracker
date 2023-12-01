@@ -1,73 +1,31 @@
 import mongoose from "mongoose";
-import { loadType } from "mongoose-currency";
 
 const Schema = mongoose.Schema;
-loadType(mongoose);
 
 // Define a schema for the category expenses
 const categoryExpenseSchema = new Schema({
   category: String,
-  amount: {
-    type: mongoose.Types.Currency,
-    currency: "USD",
-    get: (v) => v / 100
-  }
+  amount: Number, // Changed to Number type
 });
 
 const daySchema = new Schema({
   date: String,
-  revenue: {
-    type: mongoose.Types.Currency,
-    currency: "USD",
-    get: (v) => v / 100
-  },
-  expenses: {
-    type: mongoose.Types.Currency,
-    currency: "USD",
-    get: (v) => v / 100
-  }
+  revenue: Number, // Changed to Number type
+  expenses: Number, // Changed to Number type
 }, { toJSON: { getters: true } });
 
 const monthSchema = new Schema({
   month: String,
-  revenue: {
-    type: mongoose.Types.Currency,
-    currency: "USD",
-    get: (v) => v / 100
-  },
-  expenses: {
-    type: mongoose.Types.Currency,
-    currency: "USD",
-    get: (v) => v / 100
-  },
-  operationalExpenses: {
-    type: mongoose.Types.Currency,
-    currency: "USD",
-    get: (v) => v / 100
-  },
-  nonOperationalExpenses: {
-    type: mongoose.Types.Currency,
-    currency: "USD",
-    get: (v) => v / 100
-  }
+  revenue: Number, // Changed to Number type
+  expenses: Number, // Changed to Number type
+  operationalExpenses: Number, // Changed to Number type
+  nonOperationalExpenses: Number, // Changed to Number type
 }, { toJSON: { getters: true } });
 
 const KPISchema = new Schema({
-  totalProfit: {
-    type: mongoose.Types.Currency,
-    currency: "USD",
-    get: (v) => v / 100
-  },
-  totalRevenue: {
-    type: mongoose.Types.Currency,
-    currency: "USD",
-    get: (v) => v / 100
-  },
-  totalExpenses: {
-    type: mongoose.Types.Currency,
-    currency: "USD",
-    get: (v) => v / 100
-  },
+  totalProfit: Number, // Changed to Number type
+  totalRevenue: Number, // Changed to Number type
+  totalExpenses: Number, // Changed to Number type
   expensesByCategory: [categoryExpenseSchema],
   monthlyData: [monthSchema],
   dailyData: [daySchema]
